@@ -11,14 +11,18 @@
   "dependencies": {
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "next",
-    "@mui/material": "next",
-    "@mui/material-nextjs": "next",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^6.0.0-alpha.2",
+    "@mui/material": "^6.0.0-alpha.2",
+    "@mui/material-nextjs": "^6.0.0-alpha.0",
+    "next": "14.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "swr": "^2.2.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
+    "prettier": "3.2.5"
   }
 }
