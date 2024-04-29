@@ -18,10 +18,10 @@ export default function AppBar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, direction: 'ltr' }}>
+    <Box sx={{ flexGrow: 1, direction: 'rtl' }}>
       <MuiAppBar position="static">
         <Toolbar>
-          <LockIcon sx={{ mr: 1 }} />
+          <LockIcon sx={{ ml: 1 }} />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             rialir.com
           </Typography>
