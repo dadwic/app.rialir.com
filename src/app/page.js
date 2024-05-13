@@ -1,10 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@/components/AppBar';
+import Rates from '@/components/Rates';
+import Copyright from '@/components/Copyright';
 
 export default function Home() {
   return (
-    <div>
+    <React.Fragment>
       <AppBar />
-    </div>
+      <Rates />
+      <Copyright />
+    </React.Fragment>
   );
 }
