@@ -26,7 +26,7 @@ export default function Copyright() {
         >
           <img
             height={40}
-            src="/google-play-badge.svg"
+            src="/Google_Play_Store_badge_EN.svg"
             alt="Download on the Google Play Store"
           />
         </Link>
