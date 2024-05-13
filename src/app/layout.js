@@ -5,6 +5,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Rtl from '@/components/Rtl';
 import theme from '@/theme';
 
+export const metadata = {
+  title: 'rialir: Turkish lira Exchange Rates',
+  // description: 'Real-time Turkish lira Exchange Rates',
+};
+
 export default function RootLayout(props) {
   return (
     <html lang="fa" dir="rtl">
