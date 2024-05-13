@@ -8,27 +8,32 @@ export default function Copyright() {
     <Stack sx={{ direction: 'rtl' }} alignItems="center" mt={2}>
       <div>
         <Link
-          href="https://apps.apple.com/app/id6498321738"
-          target="_blank"
           sx={{ ml: 1 }}
+          color="inherit"
+          target="_blank"
+          href="https://apps.apple.com/app/id6498321738"
         >
           <img
+            height={40}
             src="/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
             alt="Download on the App Store"
-            height={40}
           />
         </Link>
-        <Link href="https://apps.apple.com/app/id6498321738" target="_blank">
+        <Link
+          color="inherit"
+          target="_blank"
+          href="https://apps.apple.com/app/id6498321738"
+        >
           <img
+            height={40}
             src="/google-play-badge.svg"
             alt="Download on the Google Play Store"
-            height={40}
           />
         </Link>
       </div>
       <Typography variant="body2" color="text.secondary" align="center" mt={1}>
         {`© ${new Date().getFullYear()} `}
-        <Link color="inherit" href="https://www.rialir.com/">
+        <Link color="inherit" target="_blank" href="https://www.rialir.com/">
           RIALIR
         </Link>
       </Typography>
