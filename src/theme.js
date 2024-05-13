@@ -1,12 +1,5 @@
 'use client';
-import { Roboto } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
-
-const roboto = Roboto({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 const theme = createTheme({
   direction: 'rtl',
@@ -14,7 +7,7 @@ const theme = createTheme({
     mode: 'dark',
   },
   typography: {
-    fontFamily: `Vazirmatn, ${roboto.style.fontFamily}`,
+    fontFamily: 'Vazirmatn',
   },
   components: {
     MuiAlert: {
