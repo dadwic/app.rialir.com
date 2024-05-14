@@ -7,12 +7,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import DashboardIcon from '@mui/icons-material/Speed';
+import LanguageIcon from '@mui/icons-material/Language';
 import LiraIcon from '@mui/icons-material/CurrencyLira';
-import LocationIcon from '@mui/icons-material/LocationOn';
-import ShoppingIcon from '@mui/icons-material/ShoppingCart';
-import AccountIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddShoppingIcon from '@mui/icons-material/AddShoppingCart';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const iOS =
   typeof navigator !== 'undefined' &&
@@ -31,7 +30,16 @@ export default function Drawer({ open, onClose, onOpen }) {
       <Box role="presentation" onClick={onClose} onKeyDown={onClose}>
         <List>
           <ListItem disablePadding>
-            <ListItemButton href="/lir/">
+            <ListItemButton href="https://www.rialir.com/" target="_blank">
+              <ListItemIcon>
+                <LanguageIcon />
+              </ListItemIcon>
+              <ListItemText primary="وب‌سایت ریالیر" />
+            </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+            <ListItemButton href="https://www.rialir.com/lir/" target="_blank">
               <ListItemIcon>
                 <LiraIcon />
               </ListItemIcon>
@@ -40,47 +48,38 @@ export default function Drawer({ open, onClose, onOpen }) {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton href="/account/">
+            <ListItemButton
+              target="_blank"
+              href="https://www.rialir.com/account/"
+            >
               <ListItemIcon>
-                <DashboardIcon />
+                <AccountCircleIcon />
               </ListItemIcon>
-              <ListItemText primary="پیشخوان حساب" />
+              <ListItemText primary="حساب ریالیر" />
             </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton href="/account/order/">
+            <ListItemButton
+              target="_blank"
+              href="https://www.rialir.com/account/order/"
+            >
               <ListItemIcon>
                 <AddShoppingIcon />
               </ListItemIcon>
-              <ListItemText primary="ثبت سفارش" />
+              <ListItemText primary="خرید از ترکیه" />
             </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton href="/account/orders/">
+            <ListItemButton
+              target="_blank"
+              href="https://www.rialir.com/contact/"
+            >
               <ListItemIcon>
-                <ShoppingIcon />
+                <AlternateEmailIcon />
               </ListItemIcon>
-              <ListItemText primary="لیست سفارش ها" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disablePadding>
-            <ListItemButton href="/account/edit-address/">
-              <ListItemIcon>
-                <LocationIcon />
-              </ListItemIcon>
-              <ListItemText primary="آدرس ها" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disablePadding>
-            <ListItemButton href="/account/edit-account/">
-              <ListItemIcon>
-                <AccountIcon />
-              </ListItemIcon>
-              <ListItemText primary="جزئیات حساب" />
+              <ListItemText primary="تماس با ما" />
             </ListItemButton>
           </ListItem>
         </List>
