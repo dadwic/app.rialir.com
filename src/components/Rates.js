@@ -22,12 +22,12 @@ export default function Rates() {
         </ListItemAvatar>
         <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
         <Stack alignItems="flex-end">
-          <Tooltip open arrow placement="left" title="خرید">
+          <Tooltip open placement="left-start" title="&nbsp;خرید&nbsp;">
             <Typography variant="h5" fontWeight={700} component="div">
               1900
             </Typography>
           </Tooltip>
-          <Tooltip open arrow placement="left" title="فروش">
+          <Tooltip open placement="left-start" title="فروش">
             <Typography variant="h5" fontWeight={700} component="div">
               2000
             </Typography>
@@ -42,7 +42,7 @@ export default function Rates() {
         </ListItemAvatar>
         <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
         <Stack alignItems="flex-end">
-          <Typography variant="h5" fontWeight={700} component="div">
+          <Typography variant="h6" fontWeight={700} component="div">
             59730
           </Typography>
           <Typography variant="h5" fontWeight={700} component="div">
@@ -58,7 +58,7 @@ export default function Rates() {
         </ListItemAvatar>
         <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
         <Stack alignItems="flex-end">
-          <Typography variant="h5" fontWeight={700} component="div">
+          <Typography variant="h6" fontWeight={700} component="div">
             32.45
           </Typography>
           <Typography variant="h5" fontWeight={700} component="div">
