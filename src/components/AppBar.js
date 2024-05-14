@@ -21,8 +21,8 @@ export default function AppBar() {
     <Box sx={{ flexGrow: 1, direction: 'rtl' }}>
       <MuiAppBar position="static">
         <Toolbar>
-          <LockIcon sx={{ ml: 1 }} />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <LockIcon fontSize="small" sx={{ ml: 1, mb: 0.5 }} />
+          <Typography variant="h5" sx={{ flexGrow: 1 }}>
             rialir.com
           </Typography>
           <IconButton onClick={toggleDrawer(true)}>
