@@ -26,6 +26,13 @@ const theme = createTheme({
         }),
       },
     },
+    MuiListItem: {
+      styleOverrides: {
+        root: {
+          height: 80,
+        },
+      },
+    },
     MuiListItemText: {
       styleOverrides: {
         secondary: {

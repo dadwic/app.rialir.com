@@ -30,7 +30,12 @@ export default function Rates() {
   if (error) {
     return (
       <List disablePadding>
-        <ListItem sx={{ backgroundColor: (t) => t.palette.error.main }}>
+        <ListItem
+          sx={{
+            height: 'auto',
+            backgroundColor: (t) => t.palette.error.main,
+          }}
+        >
           <ListItemText primary="خطا در دریافت اطلاعات" />
           <Button color="inherit" variant="outlined" onClick={mutate}>
             تلاش مجدد
@@ -42,10 +47,10 @@ export default function Rates() {
 
   if (isLoading) {
     return (
-      <List sx={{ mb: 2 }}>
+      <List sx={{ pb: 4 }}>
         {[...new Array(5)].map((_, key) => (
           <React.Fragment key={key}>
-            <ListItem sx={{ height: 80 }}>
+            <ListItem>
               <ListItemAvatar>
                 <Skeleton variant="circular">
                   <Avatar />
