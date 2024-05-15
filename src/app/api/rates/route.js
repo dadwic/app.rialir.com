@@ -13,9 +13,6 @@ export async function GET() {
     );
     return Response.json(data.Item);
   } catch (e) {
-    return Response.json(
-      { message: 'لطفاً بعداً دوباره امتحان کنید' },
-      { status: 500 }
-    );
+    return Response.error();
   }
 }

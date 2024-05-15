@@ -26,6 +26,13 @@ const theme = createTheme({
         }),
       },
     },
+    MuiListItemText: {
+      styleOverrides: {
+        secondary: {
+          fontSize: 16,
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: `
         @font-face {

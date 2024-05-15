@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import moment from 'moment-jalaali';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
@@ -21,20 +22,28 @@ moment.loadPersian({ usePersianDigits: true, dialect: 'persian-modern' });
 
 const ccyFormat = (val) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const fetcher = async (...args) => {
-  const res = await fetch(...args);
-  return res.json();
-};
+const fetcher = (url) => fetch(url).then((r) => r.json());
 
 export default function Rates() {
-  const { data, error, isLoading } = useSWR('/api/rates', fetcher);
+  const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
 
-  if (error) return <div>failed to load</div>;
+  if (error) {
+    return (
+      <List disablePadding>
+        <ListItem sx={{ backgroundColor: (t) => t.palette.error.main }}>
+          <ListItemText primary="خطا در دریافت اطلاعات" />
+          <Button color="inherit" variant="outlined" onClick={mutate}>
+            تلاش مجدد
+          </Button>
+        </ListItem>
+      </List>
+    );
+  }
 
-  return (
-    <List>
-      {isLoading ? (
-        [...new Array(5)].map((_, key) => (
+  if (isLoading) {
+    return (
+      <List sx={{ mb: 2 }}>
+        {[...new Array(5)].map((_, key) => (
           <React.Fragment key={key}>
             <ListItem sx={{ height: 80 }}>
               <ListItemAvatar>
@@ -55,113 +64,115 @@ export default function Rates() {
             </ListItem>
             <Divider variant="inset" component="li" />
           </React.Fragment>
-        ))
-      ) : (
-        <React.Fragment>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <CurrencyLiraIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
-            {data?.try_irt && (
-              <Stack alignItems="flex-end">
-                <Tooltip open placement="left-start" title="&nbsp;خرید&nbsp;">
-                  <Typography variant="h5" fontWeight={700} component="div">
-                    {ccyFormat(data.try_irt?.buy)}
-                  </Typography>
-                </Tooltip>
-                <Tooltip open placement="left-start" title="فروش">
-                  <Typography variant="h5" fontWeight={700} component="div">
-                    {ccyFormat(data.try_irt?.sell)}
-                  </Typography>
-                </Tooltip>
-              </Stack>
-            )}
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <AttachMoneyIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
-            {data?.usdt_irt && (
-              <Stack alignItems="flex-end">
-                <Typography variant="h5" fontWeight={700} component="div">
-                  {ccyFormat(data.usdt_irt?.buy)}
-                </Typography>
-                <Typography variant="h5" fontWeight={700} component="div">
-                  {ccyFormat(data.usdt_irt?.sell)}
-                </Typography>
-              </Stack>
-            )}
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <AttachMoneyIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
-            {data?.usdt_try && (
-              <Stack alignItems="flex-end">
-                <Typography variant="h5" fontWeight={700} component="div">
-                  {ccyFormat(data.usdt_try?.buy)}
-                </Typography>
-                <Typography variant="h5" fontWeight={700} component="div">
-                  {ccyFormat(data.usdt_try?.sell)}
-                </Typography>
-              </Stack>
-            )}
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <CurrencyBitcoinIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="BTC-USDT" secondary="بیت‌کوین به تتر" />
-            {data?.btc_usdt && (
+        ))}
+      </List>
+    );
+  }
+
+  return (
+    <List>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <CurrencyLiraIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
+        {data?.try_irt && (
+          <Stack alignItems="flex-end">
+            <Tooltip open placement="left-start" title="&nbsp;خرید&nbsp;">
               <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.btc_usdt)}
+                {ccyFormat(data.try_irt?.buy)}
               </Typography>
-            )}
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar>
-                <CurrencyLiraIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary="خرید کالا از ترکیه"
-              secondary="لیر ترکیه به تومان"
-            />
-            {data?.try_irt && (
+            </Tooltip>
+            <Tooltip open placement="left-start" title="فروش">
               <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.try_irt?.shop)}
+                {ccyFormat(data.try_irt?.sell)}
               </Typography>
-            )}
-          </ListItem>
-          <Divider variant="inset" component="li" />
-          <Typography
-            mt={2}
-            variant="h6"
-            align="center"
-            component="div"
-            color="textSecondary"
-          >
-            آخرین به‌روزرسانی:&nbsp;
-            {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
+            </Tooltip>
+          </Stack>
+        )}
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <AttachMoneyIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
+        {data?.usdt_irt && (
+          <Stack alignItems="flex-end">
+            <Typography variant="h5" fontWeight={700} component="div">
+              {ccyFormat(data.usdt_irt?.buy)}
+            </Typography>
+            <Typography variant="h5" fontWeight={700} component="div">
+              {ccyFormat(data.usdt_irt?.sell)}
+            </Typography>
+          </Stack>
+        )}
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <AttachMoneyIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
+        {data?.usdt_try && (
+          <Stack alignItems="flex-end">
+            <Typography variant="h5" fontWeight={700} component="div">
+              {ccyFormat(data.usdt_try?.buy)}
+            </Typography>
+            <Typography variant="h5" fontWeight={700} component="div">
+              {ccyFormat(data.usdt_try?.sell)}
+            </Typography>
+          </Stack>
+        )}
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <CurrencyBitcoinIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="BTC-USDT" secondary="بیت‌کوین به تتر" />
+        {data?.btc_usdt && (
+          <Typography variant="h5" fontWeight={700} component="div">
+            {ccyFormat(data.btc_usdt)}
           </Typography>
-        </React.Fragment>
-      )}
+        )}
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar>
+            <CurrencyLiraIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText
+          primary="خرید کالا از ترکیه"
+          secondary="لیر ترکیه به تومان"
+        />
+        {data?.try_irt && (
+          <Typography variant="h5" fontWeight={700} component="div">
+            {ccyFormat(data.try_irt?.shop)}
+          </Typography>
+        )}
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <Typography
+        mt={2}
+        variant="h6"
+        align="center"
+        component="div"
+        color="textSecondary"
+      >
+        آخرین به‌روزرسانی:&nbsp;
+        {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
+      </Typography>
     </List>
   );
 }
