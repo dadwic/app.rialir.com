@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
+import Skeleton from '@mui/material/Skeleton';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
@@ -29,104 +30,130 @@ export default function Rates() {
   const { data, error, isLoading } = useSWR('/api/rates', fetcher);
 
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   return (
     <List>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <CurrencyLiraIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
-        {data?.try_irt && (
-          <Stack alignItems="flex-end">
-            <Tooltip open placement="left-start" title="&nbsp;خرید&nbsp;">
+      {isLoading ? (
+        [...new Array(5)].map((_, key) => (
+          <React.Fragment key={key}>
+            <ListItem>
+              <ListItemAvatar>
+                <Skeleton variant="circular">
+                  <Avatar />
+                </Skeleton>
+              </ListItemAvatar>
+              <ListItemText
+                primary={<Skeleton animation="wave" height={24} width="90%" />}
+                secondary={<Skeleton animation="wave" height={24} />}
+              />
+              <Skeleton
+                animation="wave"
+                height={40}
+                width="20%"
+                sx={{ ml: 4 }}
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+          </React.Fragment>
+        ))
+      ) : (
+        <React.Fragment>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <CurrencyLiraIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
+            {data?.try_irt && (
+              <Stack alignItems="flex-end">
+                <Tooltip open placement="left-start" title="&nbsp;خرید&nbsp;">
+                  <Typography variant="h5" fontWeight={700} component="div">
+                    {ccyFormat(data.try_irt?.buy)}
+                  </Typography>
+                </Tooltip>
+                <Tooltip open placement="left-start" title="فروش">
+                  <Typography variant="h5" fontWeight={700} component="div">
+                    {ccyFormat(data.try_irt?.sell)}
+                  </Typography>
+                </Tooltip>
+              </Stack>
+            )}
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <AttachMoneyIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
+            <Stack alignItems="flex-end">
               <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.try_irt?.buy)}
+                59730
               </Typography>
-            </Tooltip>
-            <Tooltip open placement="left-start" title="فروش">
               <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.try_irt?.sell)}
+                59860
               </Typography>
-            </Tooltip>
-          </Stack>
-        )}
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <AttachMoneyIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
-        <Stack alignItems="flex-end">
-          <Typography variant="h5" fontWeight={700} component="div">
-            59730
+            </Stack>
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <AttachMoneyIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
+            <Stack alignItems="flex-end">
+              <Typography variant="h5" fontWeight={700} component="div">
+                32.45
+              </Typography>
+              <Typography variant="h5" fontWeight={700} component="div">
+                32.69
+              </Typography>
+            </Stack>
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <CurrencyBitcoinIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="BTC-USDT" secondary="بیت‌کوین به تتر" />
+            <Typography variant="h5" fontWeight={700} component="div">
+              59837.21
+            </Typography>
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar>
+                <CurrencyLiraIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary="خرید کالا از ترکیه"
+              secondary="لیر ترکیه به تومان"
+            />
+            <Typography variant="h5" fontWeight={700} component="div">
+              2230
+            </Typography>
+          </ListItem>
+          <Divider variant="inset" component="li" />
+          <Typography
+            mt={2}
+            variant="h6"
+            align="center"
+            component="div"
+            color="textSecondary"
+          >
+            آخرین به‌روزرسانی:&nbsp;
+            {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
           </Typography>
-          <Typography variant="h5" fontWeight={700} component="div">
-            59860
-          </Typography>
-        </Stack>
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <AttachMoneyIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
-        <Stack alignItems="flex-end">
-          <Typography variant="h5" fontWeight={700} component="div">
-            32.45
-          </Typography>
-          <Typography variant="h5" fontWeight={700} component="div">
-            32.69
-          </Typography>
-        </Stack>
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <CurrencyBitcoinIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="BTC-USDT" secondary="بیت‌کوین به تتر" />
-        <Typography variant="h5" fontWeight={700} component="div">
-          59837.21
-        </Typography>
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <CurrencyLiraIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary="خرید کالا از ترکیه"
-          secondary="لیر ترکیه به تومان"
-        />
-        <Typography variant="h5" fontWeight={700} component="div">
-          2230
-        </Typography>
-      </ListItem>
-      <Divider variant="inset" component="li" />
-      <Typography
-        mt={2}
-        variant="h6"
-        align="center"
-        component="div"
-        color="textSecondary"
-      >
-        آخرین به‌روزرسانی:&nbsp;
-        {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
-      </Typography>
+        </React.Fragment>
+      )}
     </List>
   );
 }
