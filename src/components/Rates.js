@@ -1,7 +1,9 @@
 import React from 'react';
+import moment from 'moment-jalaali';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
+import Divider from '@mui/material/Divider';
 import Tooltip from '@mui/material/Tooltip';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
@@ -10,6 +12,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import CurrencyLiraIcon from '@mui/icons-material/CurrencyLira';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
+
+moment.loadPersian({ usePersianDigits: true, dialect: 'persian-modern' });
 
 export default function Rates() {
   return (
@@ -34,6 +38,7 @@ export default function Rates() {
           </Tooltip>
         </Stack>
       </ListItem>
+      <Divider variant="inset" component="li" />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -42,7 +47,7 @@ export default function Rates() {
         </ListItemAvatar>
         <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
         <Stack alignItems="flex-end">
-          <Typography variant="h6" fontWeight={700} component="div">
+          <Typography variant="h5" fontWeight={700} component="div">
             59730
           </Typography>
           <Typography variant="h5" fontWeight={700} component="div">
@@ -50,6 +55,7 @@ export default function Rates() {
           </Typography>
         </Stack>
       </ListItem>
+      <Divider variant="inset" component="li" />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -58,7 +64,7 @@ export default function Rates() {
         </ListItemAvatar>
         <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
         <Stack alignItems="flex-end">
-          <Typography variant="h6" fontWeight={700} component="div">
+          <Typography variant="h5" fontWeight={700} component="div">
             32.45
           </Typography>
           <Typography variant="h5" fontWeight={700} component="div">
@@ -66,6 +72,7 @@ export default function Rates() {
           </Typography>
         </Stack>
       </ListItem>
+      <Divider variant="inset" component="li" />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -77,6 +84,7 @@ export default function Rates() {
           59837.21
         </Typography>
       </ListItem>
+      <Divider variant="inset" component="li" />
       <ListItem>
         <ListItemAvatar>
           <Avatar>
@@ -91,6 +99,19 @@ export default function Rates() {
           2230
         </Typography>
       </ListItem>
+      <Divider variant="inset" component="li" />
+      <Typography
+        mt={2}
+        variant="h6"
+        align="center"
+        component="div"
+        color="textSecondary"
+      >
+        آخرین به‌روزرسانی:&nbsp;
+        {moment('2024-05-15T13:00:13.350Z').format(
+          'jD jMMMM jYYYY [ساعت] H:mm'
+        )}
+      </Typography>
     </List>
   );
 }
