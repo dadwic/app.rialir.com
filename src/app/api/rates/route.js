@@ -1,13 +1,14 @@
-import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { GetCommand } from '@aws-sdk/lib-dynamodb';
 
 const client = new DynamoDBClient({});
 
 export async function GET() {
   try {
     const data = await client.send(
-      new GetItemCommand({
+      new GetCommand({
         TableName: process.env.TABLE_NAME,
-        Key: { id: { N: '1' } },
+        Key: { id: 1 },
       })
     );
     return Response.json(data.Item);
