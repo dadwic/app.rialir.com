@@ -17,22 +17,6 @@ const theme = createTheme({
     fontFamily: `Vazirmatn, ${roboto.style.fontFamily}`,
   },
   components: {
-    MuiAlert: {
-      styleOverrides: {
-        root: ({ ownerState }) => ({
-          ...(ownerState.severity === 'info' && {
-            backgroundColor: '#60a5fa',
-          }),
-        }),
-      },
-    },
-    MuiListItem: {
-      styleOverrides: {
-        root: {
-          height: 80,
-        },
-      },
-    },
     MuiListItemText: {
       styleOverrides: {
         secondary: {

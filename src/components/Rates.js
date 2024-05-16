@@ -47,23 +47,25 @@ export default function Rates() {
 
   if (isLoading) {
     return (
-      <List sx={{ pb: 7 }}>
+      <List sx={{ pb: 6 }}>
         {[...new Array(5)].map((_, key) => (
           <React.Fragment key={key}>
-            <ListItem>
+            <ListItem sx={{ height: 80 }}>
               <ListItemAvatar>
                 <Skeleton variant="circular">
                   <Avatar />
                 </Skeleton>
               </ListItemAvatar>
               <ListItemText
-                primary={<Skeleton animation="wave" height={24} width="90%" />}
-                secondary={<Skeleton animation="wave" height={24} />}
+                primary={<Skeleton animation="wave" height={24} width={160} />}
+                secondary={
+                  <Skeleton animation="wave" height={24} width={200} />
+                }
               />
               <Skeleton
                 animation="wave"
                 height={40}
-                width="20%"
+                width={120}
                 sx={{ ml: 4 }}
               />
             </ListItem>
@@ -76,7 +78,13 @@ export default function Rates() {
 
   return (
     <React.Fragment>
-      <List>
+      <List
+        sx={{
+          '& .MuiListItem-root': {
+            height: 80,
+          },
+        }}
+      >
         <ListItem>
           <ListItemAvatar>
             <Avatar>
@@ -170,13 +178,7 @@ export default function Rates() {
         </ListItem>
         <Divider variant="inset" component="li" />
       </List>
-      <Typography
-        mt={2}
-        variant="h6"
-        align="center"
-        component="div"
-        color="textSecondary"
-      >
+      <Typography mt={2} align="center" color="textSecondary">
         آخرین به‌روزرسانی:&nbsp;
         {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
       </Typography>
