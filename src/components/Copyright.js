@@ -22,7 +22,7 @@ export default function Copyright() {
         <Link
           color="inherit"
           target="_blank"
-          href="https://apps.apple.com/app/id6498321738"
+          href="https://play.google.com/store/apps/details?id=com.rialir"
         >
           <img
             height={40}
