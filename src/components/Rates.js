@@ -117,7 +117,7 @@ export default function Rates() {
           <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
           {data?.usdt_irt && (
             <Stack alignItems="flex-end">
-              <Typography variant="h5" fontWeight={700} component="div">
+              <Typography variant="h6" fontWeight={700} component="div">
                 {ccyFormat(data.usdt_irt?.buy)}
               </Typography>
               <Typography variant="h5" fontWeight={700} component="div">
@@ -136,7 +136,7 @@ export default function Rates() {
           <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
           {data?.usdt_try && (
             <Stack alignItems="flex-end">
-              <Typography variant="h5" fontWeight={700} component="div">
+              <Typography variant="h6" fontWeight={700} component="div">
                 {ccyFormat(data.usdt_try?.buy)}
               </Typography>
               <Typography variant="h5" fontWeight={700} component="div">
