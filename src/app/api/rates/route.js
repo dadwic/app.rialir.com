@@ -14,9 +14,9 @@ export async function GET() {
     return Response.json(data.Item, {
       status: 200,
       headers: {
-        'Cache-Control': 'public, s-maxage=1',
+        'Cache-Control': 'public, s-maxage=60',
         'CDN-Cache-Control': 'public, s-maxage=60',
-        'Vercel-CDN-Cache-Control': 'public, s-maxage=3600',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=1800',
       },
     });
   } catch (e) {
