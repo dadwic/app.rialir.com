@@ -57,9 +57,9 @@ export default function Rates() {
                 </Skeleton>
               </ListItemAvatar>
               <ListItemText
-                primary={<Skeleton animation="wave" height={24} width={160} />}
+                primary={<Skeleton animation="wave" height={24} width={120} />}
                 secondary={
-                  <Skeleton animation="wave" height={24} width={200} />
+                  <Skeleton animation="wave" height={24} width={160} />
                 }
               />
               <Skeleton
