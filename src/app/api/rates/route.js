@@ -11,7 +11,14 @@ export async function GET() {
         Key: { id: 1 },
       })
     );
-    return Response.json(data.Item);
+    return Response.json(data.Item, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'public, s-maxage=1',
+        'CDN-Cache-Control': 'public, s-maxage=60',
+        'Vercel-CDN-Cache-Control': 'public, s-maxage=3600',
+      },
+    });
   } catch (e) {
     return Response.error();
   }
