@@ -22,7 +22,12 @@ moment.loadPersian({ usePersianDigits: true, dialect: 'persian-modern' });
 
 const ccyFormat = (val) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url) =>
+  fetch(url, {
+    next: {
+      revalidate: 1800,
+    },
+  }).then((r) => r.json());
 
 export default function Rates() {
   const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
