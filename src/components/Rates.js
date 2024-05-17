@@ -3,12 +3,12 @@
 import React from 'react';
 import useSWR from 'swr';
 import moment from 'moment-jalaali';
+import Chip from '@mui/material/Chip';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
-import Tooltip from '@mui/material/Tooltip';
 import Skeleton from '@mui/material/Skeleton';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
@@ -93,17 +93,29 @@ export default function Rates() {
           </ListItemAvatar>
           <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
           {data?.try_irt && (
-            <Stack alignItems="flex-end">
-              <Tooltip open placement="left-start" title="&nbsp;خرید&nbsp;">
-                <Typography variant="h5" fontWeight={700} component="div">
+            <Stack>
+              <Stack direction="row">
+                <Chip label="&nbsp;خرید&nbsp;" size="small" />
+                <Typography
+                  variant="h5"
+                  fontWeight={700}
+                  component="div"
+                  ml={2}
+                >
                   {ccyFormat(data.try_irt?.buy)}
                 </Typography>
-              </Tooltip>
-              <Tooltip open placement="left-start" title="فروش">
-                <Typography variant="h5" fontWeight={700} component="div">
+              </Stack>
+              <Stack direction="row">
+                <Chip label="فروش" size="small" />
+                <Typography
+                  variant="h5"
+                  fontWeight={700}
+                  component="div"
+                  ml={2}
+                >
                   {ccyFormat(data.try_irt?.sell)}
                 </Typography>
-              </Tooltip>
+              </Stack>
             </Stack>
           )}
         </ListItem>
