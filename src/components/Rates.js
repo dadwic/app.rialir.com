@@ -25,7 +25,7 @@ const ccyFormat = (val) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const fetcher = (url) =>
   fetch(url, {
     next: {
-      revalidate: 1800,
+      revalidate: 60,
     },
   }).then((r) => r.json());
 
