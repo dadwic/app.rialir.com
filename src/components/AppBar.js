@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -20,9 +19,14 @@ export default function AppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <MuiAppBar position="static">
         <Toolbar>
-          <Link href="https://app.rialir.com/" sx={{ flexGrow: 1 }}>
+          <Box
+            component="a"
+            display="flex"
+            href="https://app.rialir.com/"
+            sx={{ flexGrow: 1 }}
+          >
             <img src="/logo.svg" height={48} />
-          </Link>
+          </Box>
           <IconButton onClick={toggleDrawer(true)}>
             <MenuIcon />
           </IconButton>
