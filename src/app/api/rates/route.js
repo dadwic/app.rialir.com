@@ -22,3 +22,4 @@ export async function GET() {
     return Response.error();
   }
 }
+export const revalidate = 10;
