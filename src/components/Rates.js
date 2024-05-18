@@ -23,7 +23,7 @@ moment.loadPersian({ usePersianDigits: true, dialect: 'persian-modern' });
 const ccyFormat = (val) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
 const fetcher = (url) =>
-  fetch(url, { cache: 'no-store' }).then((r) => r.json());
+  fetch(url, { next: { revalidate: 10 } }).then((r) => r.json());
 
 export default function Rates() {
   const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
@@ -193,7 +193,7 @@ export default function Rates() {
       </List>
       <Typography mt={2} align="center" color="textSecondary">
         آخرین به‌روزرسانی:&nbsp;
-        {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
+        {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm:ss')}
       </Typography>
     </React.Fragment>
   );

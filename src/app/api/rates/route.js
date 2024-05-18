@@ -1,5 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { GetCommand } from '@aws-sdk/lib-dynamodb';
+import { NextResponse } from 'next/server';
 
 const client = new DynamoDBClient({});
 
@@ -11,20 +12,13 @@ export async function GET() {
         Key: { id: 1 },
       })
     );
-    return Response.json(
+    return NextResponse.json(
       { ...data.Item, updated_at: new Date().toISOString() },
       {
         status: 200,
-        headers: {
-          'Cache-Control': 'max-age=60',
-          'CDN-Cache-Control': 'max-age=60',
-          'Vercel-CDN-Cache-Control': 'max-age=3600',
-        },
       }
     );
   } catch (e) {
     return Response.error();
   }
 }
-
-export const revalidate = 0;
