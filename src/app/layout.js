@@ -6,6 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Rtl from '@/components/Rtl';
 import theme from '@/theme';
 
+export const revalidate = 60;
+
 export const metadata = {
   title: 'rialir: Turkish lira Exchange Rates',
   // description: 'Real-time Turkish lira Exchange Rates',
