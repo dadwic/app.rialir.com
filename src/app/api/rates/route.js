@@ -14,7 +14,10 @@ export async function GET() {
         Key: { id: 1 },
       })
     );
-    return NextResponse.json(data.Item);
+    return NextResponse.json({
+      ...data.Item,
+      updated_at: new Date().toISOString(),
+    });
   } catch (e) {
     return NextResponse.error();
   }
