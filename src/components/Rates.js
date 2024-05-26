@@ -25,7 +25,6 @@ const ccyFormat = (val) => `${val}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 const fetcher = (url) =>
   fetch(url, {
     cache: 'no-store',
-    next: { revalidate: 0 },
   }).then((r) => r.json());
 
 export default function Rates() {

@@ -4,7 +4,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 
 const client = new DynamoDBClient({});
 
-export const revalidate = 60;
+export const fetchCache = 'force-no-store';
 
 export async function GET() {
   try {
