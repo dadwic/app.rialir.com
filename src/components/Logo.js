@@ -10,7 +10,7 @@ const Logo = () => {
 
     gsap.set(paths, { drawSVG: '0%', opacity: 0 });
 
-    gsap.to(paths, { drawSVG: '100%', opacity: 1, duration: 2, stagger: 0.1 });
+    gsap.to(paths, { drawSVG: '100%', opacity: 1, duration: 1, stagger: 0.1 });
   }, []);
 
   return (
