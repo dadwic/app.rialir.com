@@ -18,6 +18,7 @@
     "@mui/material": "^6.0.0-alpha.2",
     "@mui/material-nextjs": "^6.0.0-alpha.0",
     "@vercel/speed-insights": "^1.0.10",
+    "gsap": "^3.12.5",
     "moment-jalaali": "^0.10.0",
     "next": "14.1",
     "react": "^18.2.0",
