@@ -17,19 +17,14 @@ const iOS =
   typeof navigator !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-const container =
-  window !== undefined
-    ? () => window.document.getElementById('main')
-    : undefined;
-
 export default function Drawer({ open, onClose, onOpen }) {
   return (
     <SwipeableDrawer
+      dir="rtl"
       anchor="left"
       open={open}
       disableDiscovery={iOS}
       disableBackdropTransition={!iOS}
-      ModalProps={{ container }}
       onClose={onClose}
       onOpen={onOpen}
     >
