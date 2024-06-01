@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout(props) {
   return (
-    <html lang="fa" dir="rtl">
+    <html lang="fa">
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <Rtl>

@@ -27,10 +27,10 @@ export default function Home() {
   }
 
   return (
-    <React.Fragment>
+    <div dir="rtl" id="main">
       <AppBar />
       <Rates />
       <Copyright />
-    </React.Fragment>
+    </div>
   );
 }
