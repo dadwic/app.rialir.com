@@ -10,7 +10,7 @@ import TranslateIcon from '@mui/icons-material/Translate';
 import { setLocale } from '@/app/actions';
 import Drawer from './Drawer';
 
-export default function AppBar() {
+export default function AppBar({ dir }) {
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const menuOpen = Boolean(anchorEl);
@@ -71,6 +71,7 @@ export default function AppBar() {
         </Toolbar>
       </MuiAppBar>
       <Drawer
+        dir={dir}
         open={open}
         onOpen={toggleDrawer(true)}
         onClose={toggleDrawer(false)}

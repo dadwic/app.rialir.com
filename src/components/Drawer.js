@@ -17,10 +17,10 @@ const iOS =
   typeof navigator !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-export default function Drawer({ open, onClose, onOpen }) {
+export default function Drawer({ dir, open, onClose, onOpen }) {
   return (
     <SwipeableDrawer
-      dir="rtl"
+      dir={dir}
       anchor="left"
       open={open}
       disableDiscovery={iOS}

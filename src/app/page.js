@@ -31,7 +31,7 @@ export default function Home() {
 
   return (
     <div dir={dir} id="main">
-      <AppBar />
+      <AppBar dir={dir} />
       <Rates locale={locale} />
       <Copyright />
     </div>
