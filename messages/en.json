@@ -1,11 +1,12 @@
 {
-  "Index": {
-    "title": "Home",
-    "description": "This is the home page.",
-    "navigateToAbout": "Navigate to about"
-  },
-  "About": {
-    "title": "About",
-    "description": "This is the about page."
+  "Rates": {
+    "try_irt": "Turkish lira to Toman",
+    "usdt_irt": "Tether to Toman",
+    "usdt_try": "Tether to Turkish lira",
+    "btc_usdt": "Bitcoin to Tether",
+    "shopping": "Online Shopping",
+    "lastUpdate": "Last Update: ",
+    "error": "Failed to load data",
+    "retry": "Try again"
   }
 }

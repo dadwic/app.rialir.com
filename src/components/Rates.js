@@ -1,6 +1,7 @@
 import React from 'react';
 import useSWR from 'swr';
 import moment from 'moment-jalaali';
+import { useTranslations } from 'next-intl';
 import Chip from '@mui/material/Chip';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
@@ -26,6 +27,7 @@ const fetcher = (url) =>
   }).then((r) => r.json());
 
 export default function Rates() {
+  const t = useTranslations('Rates');
   const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
 
   if (error) {
@@ -39,7 +41,7 @@ export default function Rates() {
         >
           <ListItemText primary="خطا در دریافت اطلاعات" />
           <Button color="inherit" variant="outlined" onClick={mutate}>
-            تلاش مجدد
+            {t('retry')}
           </Button>
         </ListItem>
       </List>
@@ -92,7 +94,7 @@ export default function Rates() {
               <CurrencyLiraIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="TRY-IRT" secondary="لیر ترکیه به تومان" />
+          <ListItemText primary="TRY-IRT" secondary={t('try_irt')} />
           {data?.try_irt && (
             <Stack>
               <Stack direction="row">
@@ -127,7 +129,7 @@ export default function Rates() {
               <AttachMoneyIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="USDT-IRT" secondary="تتر به تومان" />
+          <ListItemText primary="USDT-IRT" secondary={t('usdt_irt')} />
           {data?.usdt_irt && (
             <Stack alignItems="flex-end">
               <Typography variant="h6" fontWeight={700} component="div">
@@ -146,7 +148,7 @@ export default function Rates() {
               <AttachMoneyIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="USDT-TRY" secondary="تتر به لیر ترکیه" />
+          <ListItemText primary="USDT-TRY" secondary={t('usdt_try')} />
           {data?.usdt_try && (
             <Stack alignItems="flex-end">
               <Typography variant="h6" fontWeight={700} component="div">
@@ -165,7 +167,7 @@ export default function Rates() {
               <CurrencyBitcoinIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="BTC-USDT" secondary="بیت‌کوین به تتر" />
+          <ListItemText primary="BTC-USDT" secondary={t('btc_usdt')} />
           {data?.btc_usdt && (
             <Typography variant="h5" fontWeight={700} component="div">
               {ccyFormat(data.btc_usdt)}
@@ -179,10 +181,7 @@ export default function Rates() {
               <CurrencyLiraIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText
-            primary="خرید کالا از ترکیه"
-            secondary="لیر ترکیه به تومان"
-          />
+          <ListItemText primary={t('shopping')} secondary={t('try_irt')} />
           {data?.try_irt && (
             <Typography variant="h5" fontWeight={700} component="div">
               {ccyFormat(data.try_irt?.shop)}
@@ -192,7 +191,7 @@ export default function Rates() {
         <Divider variant="inset" component="li" />
       </List>
       <Typography mt={2} align="center" color="textSecondary">
-        آخرین به‌روزرسانی:&nbsp;
+        {t('lastUpdate')}&nbsp;
         {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
       </Typography>
     </React.Fragment>
