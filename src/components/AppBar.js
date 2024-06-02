@@ -64,8 +64,8 @@ export default function AppBar({ dir }) {
                 'aria-labelledby': 'lang-button',
               }}
             >
-              <MenuItem onClick={handleChange('fa')}>فارسی</MenuItem>
               <MenuItem onClick={handleChange('en')}>English</MenuItem>
+              <MenuItem onClick={handleChange('fa')}>Persian</MenuItem>
             </Menu>
             <IconButton onClick={toggleDrawer(true)}>
               <Avatar sx={{ width: 32, height: 32 }}>
