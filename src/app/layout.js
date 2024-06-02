@@ -1,5 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,18 +13,22 @@ export const metadata = {
   // description: 'Real-time Turkish lira Exchange Rates',
 };
 
-export default function RootLayout(props) {
+export default async function RootLayout(props) {
+  const locale = await getLocale();
+  const messages = await getMessages();
   return (
-    <html lang="fa">
+    <html lang={locale}>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <Rtl>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              {props.children}
-              <SpeedInsights />
-            </ThemeProvider>
-          </Rtl>
+          <NextIntlClientProvider messages={messages}>
+            <Rtl>
+              <ThemeProvider theme={theme}>
+                <CssBaseline />
+                {props.children}
+                <SpeedInsights />
+              </ThemeProvider>
+            </Rtl>
+          </NextIntlClientProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
