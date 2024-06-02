@@ -2,7 +2,7 @@ import React from 'react';
 import useSWR from 'swr';
 import dayjs from 'dayjs';
 import moment from 'moment-jalaali';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Chip from '@mui/material/Chip';
 import List from '@mui/material/List';
 import Stack from '@mui/material/Stack';
@@ -27,7 +27,8 @@ const fetcher = (url) =>
     cache: 'no-store',
   }).then((r) => r.json());
 
-export default function Rates({ locale }) {
+export default function Rates() {
+  const locale = useLocale();
   const t = useTranslations('Rates');
   const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
 
