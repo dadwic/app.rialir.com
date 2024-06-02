@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import Toolbar from '@mui/material/Toolbar';
@@ -33,49 +34,48 @@ export default function AppBar({ dir }) {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <MuiAppBar position="static">
-        <Toolbar>
-          <Box
-            component="a"
-            display="flex"
-            href="https://app.rialir.com/"
-            sx={{ flexGrow: 1 }}
-          >
-            <img src="/logo.svg" height={48} />
-          </Box>
-          <IconButton
-            id="lang-button"
-            aria-controls={menuOpen ? 'lang-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={menuOpen ? 'true' : undefined}
-            onClick={handleClick}
-          >
-            <TranslateIcon />
-          </IconButton>
-          <Menu
-            id="lang-menu"
-            anchorEl={anchorEl}
-            open={menuOpen}
-            onClose={handleClose}
-            MenuListProps={{
-              'aria-labelledby': 'lang-button',
-            }}
-          >
-            <MenuItem onClick={handleChange('fa')}>فارسی</MenuItem>
-            <MenuItem onClick={handleChange('en')}>English</MenuItem>
-          </Menu>
-          <IconButton onClick={toggleDrawer(true)}>
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </MuiAppBar>
-      <Drawer
-        dir={dir}
-        open={open}
-        onOpen={toggleDrawer(true)}
-        onClose={toggleDrawer(false)}
-      />
-    </Box>
+    <div dir="rtl">
+      <Box sx={{ flexGrow: 1 }}>
+        <MuiAppBar position="static">
+          <Toolbar>
+            <Box display="flex" sx={{ flexGrow: 1 }}>
+              <Link href="/">
+                <img src="/logo.svg" height={48} />
+              </Link>
+            </Box>
+            <IconButton
+              id="lang-button"
+              aria-controls={menuOpen ? 'lang-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={menuOpen ? 'true' : undefined}
+              onClick={handleClick}
+            >
+              <TranslateIcon />
+            </IconButton>
+            <Menu
+              id="lang-menu"
+              anchorEl={anchorEl}
+              open={menuOpen}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'lang-button',
+              }}
+            >
+              <MenuItem onClick={handleChange('fa')}>فارسی</MenuItem>
+              <MenuItem onClick={handleChange('en')}>English</MenuItem>
+            </Menu>
+            <IconButton onClick={toggleDrawer(true)}>
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </MuiAppBar>
+        <Drawer
+          dir={dir}
+          open={open}
+          onOpen={toggleDrawer(true)}
+          onClose={toggleDrawer(false)}
+        />
+      </Box>
+    </div>
   );
 }

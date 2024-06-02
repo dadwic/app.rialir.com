@@ -1,4 +1,5 @@
 'use client';
+
 import { Roboto } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
 
@@ -8,7 +9,26 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const theme = createTheme({
+export const ltrTheme = createTheme({
+  direction: 'ltr',
+  palette: {
+    mode: 'dark',
+  },
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
+  components: {
+    MuiListItemText: {
+      styleOverrides: {
+        secondary: {
+          fontSize: 16,
+        },
+      },
+    },
+  },
+});
+
+export const rtlTheme = createTheme({
   direction: 'rtl',
   palette: {
     mode: 'dark',
@@ -38,5 +58,3 @@ const theme = createTheme({
     },
   },
 });
-
-export default theme;

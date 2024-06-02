@@ -5,8 +5,8 @@ import { getLocale, getMessages } from 'next-intl/server';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ltrTheme, rtlTheme } from '@/theme';
 import Rtl from '@/components/Rtl';
-import theme from '@/theme';
 
 export const metadata = {
   title: 'rialir: Turkish lira Exchange Rates',
@@ -22,7 +22,7 @@ export default async function RootLayout(props) {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <NextIntlClientProvider messages={messages}>
             <Rtl locale={locale}>
-              <ThemeProvider theme={theme}>
+              <ThemeProvider theme={locale === 'en' ? ltrTheme : rtlTheme}>
                 <CssBaseline />
                 {props.children}
                 <SpeedInsights />
