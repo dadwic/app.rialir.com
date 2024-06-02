@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
+import Avatar from '@mui/material/Avatar';
 import Toolbar from '@mui/material/Toolbar';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuItem from '@mui/material/MenuItem';
@@ -50,7 +51,9 @@ export default function AppBar({ dir }) {
               aria-expanded={menuOpen ? 'true' : undefined}
               onClick={handleClick}
             >
-              <TranslateIcon />
+              <Avatar sx={{ width: 32, height: 32 }}>
+                <TranslateIcon />
+              </Avatar>
             </IconButton>
             <Menu
               id="lang-menu"
@@ -65,7 +68,9 @@ export default function AppBar({ dir }) {
               <MenuItem onClick={handleChange('en')}>English</MenuItem>
             </Menu>
             <IconButton onClick={toggleDrawer(true)}>
-              <MenuIcon />
+              <Avatar sx={{ width: 32, height: 32 }}>
+                <MenuIcon />
+              </Avatar>
             </IconButton>
           </Toolbar>
         </MuiAppBar>
