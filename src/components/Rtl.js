@@ -6,11 +6,19 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 
-const cacheRtl = createCache({
+const rtlCache = createCache({
   key: 'muirtl',
   stylisPlugins: [prefixer, rtlPlugin],
 });
 
-export default function Rtl({ children }) {
-  return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;
+const ltrCache = createCache({
+  key: 'mui',
+});
+
+export default function Rtl({ children, locale }) {
+  return (
+    <CacheProvider value={locale === 'en' ? ltrCache : rtlCache}>
+      {children}
+    </CacheProvider>
+  );
 }

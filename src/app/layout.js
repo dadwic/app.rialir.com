@@ -21,7 +21,7 @@ export default async function RootLayout(props) {
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <NextIntlClientProvider messages={messages}>
-            <Rtl>
+            <Rtl locale={locale}>
               <ThemeProvider theme={theme}>
                 <CssBaseline />
                 {props.children}
