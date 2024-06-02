@@ -7,16 +7,24 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import TranslateIcon from '@mui/icons-material/Translate';
+import { setLocale } from '@/app/actions';
 import Drawer from './Drawer';
 
 export default function AppBar() {
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const menuOpen = Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleChange = (locale) => () => {
+    setLocale(locale);
     setAnchorEl(null);
   };
 
@@ -54,8 +62,8 @@ export default function AppBar() {
               'aria-labelledby': 'lang-button',
             }}
           >
-            <MenuItem onClick={handleClose}>فارسی</MenuItem>
-            <MenuItem onClick={handleClose}>English</MenuItem>
+            <MenuItem onClick={handleChange('fa')}>فارسی</MenuItem>
+            <MenuItem onClick={handleChange('en')}>English</MenuItem>
           </Menu>
           <IconButton onClick={toggleDrawer(true)}>
             <MenuIcon />

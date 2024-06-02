@@ -39,7 +39,7 @@ export default function Rates() {
             backgroundColor: (t) => t.palette.error.main,
           }}
         >
-          <ListItemText primary="خطا در دریافت اطلاعات" />
+          <ListItemText primary={t('error')} />
           <Button color="inherit" variant="outlined" onClick={mutate}>
             {t('retry')}
           </Button>
@@ -98,7 +98,7 @@ export default function Rates() {
           {data?.try_irt && (
             <Stack>
               <Stack direction="row">
-                <Chip label="&nbsp;خرید&nbsp;" size="small" />
+                <Chip label={t('buy')} size="small" sx={{ width: 48 }} />
                 <Typography
                   variant="h5"
                   fontWeight={700}
@@ -109,7 +109,7 @@ export default function Rates() {
                 </Typography>
               </Stack>
               <Stack direction="row">
-                <Chip label="فروش" size="small" />
+                <Chip label={t('sell')} size="small" sx={{ width: 48 }} />
                 <Typography
                   variant="h5"
                   fontWeight={700}

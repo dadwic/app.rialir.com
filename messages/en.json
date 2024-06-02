@@ -1,5 +1,7 @@
 {
   "Rates": {
+    "buy": "Buy",
+    "sell": "Sell",
     "try_irt": "Turkish lira to Toman",
     "usdt_irt": "Tether to Toman",
     "usdt_try": "Tether to Turkish lira",
