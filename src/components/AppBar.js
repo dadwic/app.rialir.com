@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
@@ -13,8 +14,9 @@ import { setLocale } from '@/app/actions';
 import Drawer from './Drawer';
 
 export default function AppBar({ dir }) {
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -64,8 +66,12 @@ export default function AppBar({ dir }) {
                 'aria-labelledby': 'lang-button',
               }}
             >
-              <MenuItem onClick={handleChange('en')}>English</MenuItem>
-              <MenuItem onClick={handleChange('fa')}>Persian</MenuItem>
+              <MenuItem disabled={locale === 'en'} onClick={handleChange('en')}>
+                English
+              </MenuItem>
+              <MenuItem disabled={locale === 'fa'} onClick={handleChange('fa')}>
+                Persian
+              </MenuItem>
             </Menu>
             <IconButton onClick={toggleDrawer(true)}>
               <Avatar sx={{ width: 32, height: 32 }}>
