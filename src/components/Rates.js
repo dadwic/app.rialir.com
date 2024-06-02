@@ -1,5 +1,6 @@
 import React from 'react';
 import useSWR from 'swr';
+import dayjs from 'dayjs';
 import moment from 'moment-jalaali';
 import { useTranslations } from 'next-intl';
 import Chip from '@mui/material/Chip';
@@ -26,7 +27,7 @@ const fetcher = (url) =>
     cache: 'no-store',
   }).then((r) => r.json());
 
-export default function Rates() {
+export default function Rates({ locale }) {
   const t = useTranslations('Rates');
   const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
 
@@ -192,7 +193,9 @@ export default function Rates() {
       </List>
       <Typography mt={2} align="center" color="textSecondary">
         {t('lastUpdate')}&nbsp;
-        {moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
+        {locale === 'en'
+          ? dayjs(data?.updated_at).format('MMM D, YYYY [at] H:mm')
+          : moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
       </Typography>
     </React.Fragment>
   );
