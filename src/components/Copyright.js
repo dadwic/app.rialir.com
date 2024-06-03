@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 export default function Copyright() {
   return (
     <Stack alignItems="center" mt={2}>
-      <React.Fragment>
+      <div>
         <Link
-          sx={{ ml: 1 }}
+          sx={{ mr: 1 }}
           color="inherit"
           target="_blank"
           href="https://apps.apple.com/app/id6498321738"
@@ -30,7 +30,7 @@ export default function Copyright() {
             alt="Download on the Google Play Store"
           />
         </Link>
-      </React.Fragment>
+      </div>
       <Typography
         dir="ltr"
         variant="body2"
