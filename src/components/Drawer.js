@@ -1,9 +1,10 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -18,6 +19,7 @@ const iOS =
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 export default function Drawer({ dir, open, onClose, onOpen }) {
+  const t = useTranslations('Menu');
   return (
     <SwipeableDrawer
       dir={dir}
@@ -56,7 +58,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               <ListItemIcon>
                 <AccountCircleIcon />
               </ListItemIcon>
-              <ListItemText primary="حساب ریالیر" />
+              <ListItemText primary={t('account')} />
             </ListItemButton>
           </ListItem>
           <Divider />
@@ -68,7 +70,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               <ListItemIcon>
                 <AddShoppingIcon />
               </ListItemIcon>
-              <ListItemText primary="خرید از ترکیه" />
+              <ListItemText primary={t('shopping')} />
             </ListItemButton>
           </ListItem>
           <Divider />
@@ -80,7 +82,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               <ListItemIcon>
                 <AlternateEmailIcon />
               </ListItemIcon>
-              <ListItemText primary="تماس با ما" />
+              <ListItemText primary={t('contact')} />
             </ListItemButton>
           </ListItem>
         </List>

@@ -10,5 +10,10 @@
     "lastUpdate": "Last Update:",
     "error": "Failed to load data",
     "retry": "Try again"
+  },
+  "Menu": {
+    "account": "Account",
+    "contact": "Contact Us",
+    "shopping": "Online Shopping"
   }
 }
