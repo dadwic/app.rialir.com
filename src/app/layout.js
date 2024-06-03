@@ -9,8 +9,8 @@ import { ltrTheme, rtlTheme } from '@/theme';
 import Rtl from '@/components/Rtl';
 
 export const metadata = {
-  title: 'rialir: Turkish lira Exchange Rates',
-  // description: 'Real-time Turkish lira Exchange Rates',
+  title: 'rialir.com: Turkish lira Exchange Rates',
+  description: 'rialir | Real-time Turkish lira Exchange Rates',
 };
 
 export default async function RootLayout(props) {
@@ -18,6 +18,19 @@ export default async function RootLayout(props) {
   const messages = await getMessages();
   return (
     <html lang={locale}>
+      <head>
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon-152x152.png"
+          sizes="152x152"
+        />
+        <link rel="mask-icon" href="/mask-icon.svg" color="#FFFFFF" />
+      </head>
       <body>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <NextIntlClientProvider messages={messages}>
