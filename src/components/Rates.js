@@ -29,6 +29,7 @@ const fetcher = (url) =>
 
 export default function Rates() {
   const locale = useLocale();
+  const isEn = locale === 'en';
   const t = useTranslations('Rates');
   const { data, error, isLoading, mutate } = useSWR('/api/rates', fetcher);
 
@@ -99,7 +100,10 @@ export default function Rates() {
           <ListItemText primary="TRY-IRT" secondary={t('try_irt')} />
           {data?.try_irt && (
             <Stack>
-              <Stack direction="row" alignItems="center">
+              <Stack
+                direction="row"
+                alignItems={isEn ? 'center' : 'flex-start'}
+              >
                 <Chip label={t('buy')} size="small" sx={{ width: 48 }} />
                 <Typography
                   variant="h5"
@@ -110,7 +114,10 @@ export default function Rates() {
                   {ccyFormat(data.try_irt?.buy)}
                 </Typography>
               </Stack>
-              <Stack direction="row" alignItems="center">
+              <Stack
+                direction="row"
+                alignItems={isEn ? 'center' : 'flex-start'}
+              >
                 <Chip label={t('sell')} size="small" sx={{ width: 48 }} />
                 <Typography
                   variant="h5"
@@ -194,7 +201,7 @@ export default function Rates() {
       </List>
       <Typography mt={2} align="center" color="textSecondary">
         {t('lastUpdate')}&nbsp;
-        {locale === 'en'
+        {isEn
           ? dayjs(data?.updated_at).format('MMM D, YYYY [at] H:mm')
           : moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
       </Typography>
