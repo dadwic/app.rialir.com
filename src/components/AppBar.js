@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLocale } from 'next-intl';
-import Link from 'next/link';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
@@ -41,10 +40,13 @@ export default function AppBar({ dir }) {
       <Box sx={{ flexGrow: 1 }}>
         <MuiAppBar position="static">
           <Toolbar>
-            <Box display="flex" sx={{ flexGrow: 1 }}>
-              <Link href="/">
-                <img src="/logo.svg" height={48} />
-              </Link>
+            <Box
+              component="a"
+              display="flex"
+              href="https://app.rialir.com/"
+              sx={{ flexGrow: 1 }}
+            >
+              <img src="/logo.svg" height={48} />
             </Box>
             <IconButton
               id="lang-button"
