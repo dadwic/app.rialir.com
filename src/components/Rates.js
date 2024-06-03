@@ -99,7 +99,7 @@ export default function Rates() {
           <ListItemText primary="TRY-IRT" secondary={t('try_irt')} />
           {data?.try_irt && (
             <Stack>
-              <Stack direction="row">
+              <Stack direction="row" alignItems="center">
                 <Chip label={t('buy')} size="small" sx={{ width: 48 }} />
                 <Typography
                   variant="h5"
@@ -110,7 +110,7 @@ export default function Rates() {
                   {ccyFormat(data.try_irt?.buy)}
                 </Typography>
               </Stack>
-              <Stack direction="row">
+              <Stack direction="row" alignItems="center">
                 <Chip label={t('sell')} size="small" sx={{ width: 48 }} />
                 <Typography
                   variant="h5"

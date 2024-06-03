@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 
 export default function Copyright() {
   return (
-    <Stack sx={{ direction: 'rtl' }} alignItems="center" mt={2}>
-      <div>
+    <Stack alignItems="center" mt={2}>
+      <React.Fragment>
         <Link
           sx={{ ml: 1 }}
           color="inherit"
@@ -30,8 +30,15 @@ export default function Copyright() {
             alt="Download on the Google Play Store"
           />
         </Link>
-      </div>
-      <Typography variant="body2" color="text.secondary" align="center" mt={1}>
+      </React.Fragment>
+      <Typography
+        dir="ltr"
+        variant="body2"
+        component="div"
+        color="text.secondary"
+        align="center"
+        mt={1}
+      >
         {`© ${new Date().getFullYear()} `}
         <Link color="inherit" target="_blank" href="https://www.rialir.com/">
           RIALIR
