@@ -2,9 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
-import Stack from '@mui/material/Stack';
-import AppBar from '@/components/AppBar';
 import Rates from '@/components/Rates';
+import AppBar from '@/components/AppBar';
 import Copyright from '@/components/Copyright';
 import Logo from '@/components/Logo';
 
@@ -23,9 +22,16 @@ export default function Home() {
 
   if (loading) {
     return (
-      <Stack minHeight="100vh" justifyContent="center">
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+        }}
+      >
         <Logo />
-      </Stack>
+      </div>
     );
   }
 
