@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 export default function Copyright() {
   return (
     <Stack alignItems="center" mt={2}>
-      <div>
+      <div dir="ltr">
         <Link
-          sx={{ mr: 1 }}
+          sx={{ mx: 1 }}
           color="inherit"
           target="_blank"
           href="https://apps.apple.com/app/id6498321738"
