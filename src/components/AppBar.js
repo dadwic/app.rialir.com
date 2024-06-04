@@ -1,12 +1,16 @@
+'use client';
+
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
+import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Toolbar from '@mui/material/Toolbar';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import TranslateIcon from '@mui/icons-material/Translate';
 import { setLocale } from '@/app/actions';
@@ -48,6 +52,9 @@ export default function AppBar({ dir }) {
             >
               <img src="/logo.svg" height={48} />
             </Box>
+            <Button LinkComponent={Link} href="/privacy-policy">
+              Privacy Policy
+            </Button>
             <IconButton
               id="lang-button"
               aria-controls={menuOpen ? 'lang-menu' : undefined}
@@ -75,11 +82,11 @@ export default function AppBar({ dir }) {
                 Persian
               </MenuItem>
             </Menu>
-            <IconButton onClick={toggleDrawer(true)} disabled>
+            {/* <IconButton onClick={toggleDrawer(true)} disabled>
               <Avatar sx={{ width: 32, height: 32 }}>
                 <MenuIcon />
               </Avatar>
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
         </MuiAppBar>
         <Drawer
