@@ -19,6 +19,12 @@ export default async function RootLayout(props) {
   return (
     <html lang={locale}>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-1349787626868737" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1349787626868737"
+          crossorigin="anonymous"
+        />
         <link
           rel="apple-touch-icon"
           href="/apple-touch-icon.png"
