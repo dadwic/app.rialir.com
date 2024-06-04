@@ -92,6 +92,13 @@ export default function Rates() {
         }}
       >
         <ListItem>
+          <ListItemText
+            primary="ADS HERE"
+            primaryTypographyProps={{ fontSize: 32, textAlign: 'center' }}
+          />
+        </ListItem>
+        <Divider component="li" />
+        <ListItem>
           <ListItemAvatar>
             <Avatar>
               <CurrencyLiraIcon />
