@@ -2,6 +2,7 @@
 
 import { Roboto } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
+import { indigo } from '@mui/material/colors';
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -25,6 +26,18 @@ export const ltrTheme = createTheme({
         },
       },
     },
+    MuiCssBaseline: {
+      styleOverrides: {
+        a: {
+          color: '#90caf9',
+          cursor: 'pointer',
+          textDecoration: 'none',
+          '&:hover': {
+            color: '#64b5f6',
+          },
+        },
+      },
+    },
   },
 });
 
@@ -45,6 +58,14 @@ export const rtlTheme = createTheme({
       },
     },
     MuiCssBaseline: {
+      a: {
+        color: '#90caf9',
+        cursor: 'pointer',
+        textDecoration: 'none',
+        '&:hover': {
+          color: '#64b5f6',
+        },
+      },
       styleOverrides: `
         @font-face {
           font-family: 'Vazirmatn';
