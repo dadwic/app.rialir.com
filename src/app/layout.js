@@ -25,6 +25,11 @@ export default async function RootLayout(props) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1349787626868737"
           crossorigin="anonymous"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
+          }}
+        />
         <link
           rel="apple-touch-icon"
           href="/apple-touch-icon.png"
