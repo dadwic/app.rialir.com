@@ -104,7 +104,7 @@ export default function Rates() {
           data-ad-layout-key="-fb+5w+4e-db+86"
           data-ad-client="ca-pub-1349787626868737"
           data-ad-slot="2261537843"
-        ></ins>
+        />
         <Divider component="li" />
         <ListItem>
           <ListItemAvatar>
