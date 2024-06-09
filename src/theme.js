@@ -2,7 +2,6 @@
 
 import { Roboto } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
-import { indigo } from '@mui/material/colors';
 
 const roboto = Roboto({
   weight: ['400', '700'],
