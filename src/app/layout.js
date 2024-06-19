@@ -22,6 +22,18 @@ export default async function RootLayout(props) {
         <meta name="google-adsense-account" content="ca-pub-1349787626868737" />
         <script
           async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-212311411-3"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-212311411-3');`,
+          }}
+        />
+        <script
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1349787626868737"
           crossOrigin="anonymous"
         />
