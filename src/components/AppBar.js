@@ -47,7 +47,7 @@ export default function AppBar({ dir }) {
             <Box
               component="a"
               display="flex"
-              href="https://app.rialir.com/"
+              href="https://rialir.com/"
               sx={{ flexGrow: 1 }}
             >
               <img src="/logo.svg" height={48} />
