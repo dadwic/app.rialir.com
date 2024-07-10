@@ -32,6 +32,16 @@ export default function Copyright() {
         </Link>
       </div>
       <Typography
+        variant="body1"
+        component="div"
+        color="text.secondary"
+        align="center"
+        fontWeight={700}
+        mt={1}
+      >
+        Turkish lira Exchange Rates
+      </Typography>
+      <Typography
         dir="ltr"
         variant="body2"
         component="div"
