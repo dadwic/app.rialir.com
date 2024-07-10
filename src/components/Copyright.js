@@ -2,6 +2,7 @@ import React from 'react';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import PulseCircle from './PulseCircle';
 
 export default function Copyright() {
   return (
@@ -31,16 +32,18 @@ export default function Copyright() {
           />
         </Link>
       </div>
-      <Typography
-        variant="body1"
-        component="div"
-        color="text.secondary"
-        align="center"
-        fontWeight={700}
-        mt={1}
-      >
-        Turkish lira Exchange Rates
-      </Typography>
+      <Stack direction="row" alignItems="center" spacing={2} mt={1}>
+        <PulseCircle />
+        <Typography
+          variant="body1"
+          component="div"
+          color="text.secondary"
+          align="center"
+          fontWeight={700}
+        >
+          Turkish lira Exchange Rates
+        </Typography>
+      </Stack>
       <Typography
         dir="ltr"
         variant="body2"
