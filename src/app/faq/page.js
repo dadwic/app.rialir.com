@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
             goods in restaurants and shops, Toman is used.
           </p>
           <h3>rialir.com’s Rates are in Rial or Toman?</h3>
-          <p>All prices on rialir .com are in Iranian Toman</p>
+          <p>All prices on rialir.com are in Iranian Toman</p>
           <h3>
             Why Other Online Currency Converter such as XE and Google Display
             Different Rial Rate than rialir.com?
