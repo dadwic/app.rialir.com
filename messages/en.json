@@ -13,7 +13,10 @@
   },
   "Menu": {
     "account": "Account",
-    "contact": "Contact Us",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "privacy-policy": "Privacy Policy",
     "shopping": "Online Shopping"
   }
 }

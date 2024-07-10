@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocale } from 'next-intl';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import AppBar from '@/components/AppBar';
 import Copyright from '@/components/Copyright';
 
@@ -12,24 +11,23 @@ export default function PrivacyPolicy() {
   return (
     <div dir={dir} id="main">
       <AppBar dir={dir} />
-      <Container sx={{ mt: 2 }}>
-        <Typography component="h1" variant="h4">
-          Privacy Policy for rialir.com
-        </Typography>
-        <Typography>
+      <Container>
+        <h4 class="lead">Privacy Policy for rialir.com</h4>
+        <p>
           If you require any more information or have any questions about our
           privacy policy, please feel free to contact us by email at
           info@rialir.com.
-        </Typography>
-        <Typography>
+        </p>
+        <br />
+        <p>
           At rialir.com, the privacy of our visitors is of extreme importance to
           us. This privacy policy document outlines the types of personal
           information is received and collected by rialir.com and how it is
           used. Please note that this Policy may be amended from time to time
           and that any changes will be published here.
-        </Typography>
-        <h3>Log Files</h3>
-        <Typography>
+        </p>
+        <h4>Log Files</h4>
+        <p>
           Like many other Web sites, rialir.com makes use of log files. The
           information inside the log files includes internet protocol ( IP )
           addresses, type of browser, Internet Service Provider ( ISP ),
@@ -38,23 +36,23 @@ export default function PrivacyPolicy() {
           and gather demographic information. IP addresses, and other such
           information are not linked to any information that is personally
           identifiable.
-        </Typography>
-        <h3>Cookies and Web Beacons</h3>
-        <Typography>
+        </p>
+        <h4>Cookies and Web Beacons</h4>
+        <p>
           rialir.com does use cookies to store information about visitors
           preferences, record user-specific information on which pages the user
           access or visit, customize Web page content based on visitors browser
           type or other information that the visitor sends via their browser.
           <br />
-        </Typography>
-        <h3>Cookies are used for the following purposes:</h3>
+        </p>
+        <h4>Cookies are used for the following purposes:</h4>
         <b>Settings within the Website</b>
-        <Typography>
+        <p>
           These cookies are used to save your settings; allowing you to hide
           information boxes you have become familiar with, etc.
-        </Typography>
+        </p>
         <b>Google Analytics &amp; Interest-Based Online Advertising</b>
-        <Typography>
+        <p>
           This website uses Google Analytics. Google Analytics uses “cookies” to
           help us analyze how visitors use the site. The information collected
           includes the pages a visitor visits, the time a visit occurred,
@@ -82,9 +80,9 @@ export default function PrivacyPolicy() {
             Google tool
           </a>{' '}
           .
-        </Typography>
+        </p>
         <b>Remarketing on the Website and App</b>
-        <Typography>
+        <p>
           Third party vendors, including Google, use cookies to serve ads based
           on a user's prior visits to rialir.com or other websites.
           <br />
@@ -115,12 +113,12 @@ export default function PrivacyPolicy() {
           <a target="_blank" href="http://www.aboutads.info/appchoices">
             http://www.aboutads.info/appchoices
           </a>
-        </Typography>
-        <Typography>
+        </p>
+        <p>
           Some of our advertising partners may use cookies and web beacons on
           our site. Our advertising partners include .... Google Adsense
-        </Typography>
-        <Typography>
+        </p>
+        <p>
           These third-party ad servers or ad networks use technology to the
           advertisements and links that appear on rialir.com send directly to
           your browsers. They automatically receive your IP address when this
@@ -138,12 +136,12 @@ export default function PrivacyPolicy() {
           browser options. More detailed information about cookie management
           with specific web browsers can be found at the browsers' respective
           websites.
-        </Typography>
+        </p>
         <br />
-        <h3>
+        <h4>
           Third-party vendors and ad networks which serving ads on our mobile
           App:
-        </h3>
+        </h4>
         <div>
           <ul class="third-party">
             <li>
@@ -296,16 +294,16 @@ export default function PrivacyPolicy() {
           </ul>
         </div>
 
-        <h3>
+        <h4>
           Third-party vendors and ad networks which serving ads on our website
-        </h3>
-        <Typography>
+        </h4>
+        <p>
           You may visit these websites (or alternatively by visiting:{' '}
           <a target="_blank" href="http://www.aboutads.info/choices/">
             www.aboutads.info
           </a>
           ) to opt out of the use of cookies for personalized advertising
-        </Typography>
+        </p>
         <div>
           <ul class="third-party">
             <li>

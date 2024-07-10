@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -8,10 +9,13 @@ import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import LanguageIcon from '@mui/icons-material/Language';
-import LiraIcon from '@mui/icons-material/CurrencyLira';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AddShoppingIcon from '@mui/icons-material/AddShoppingCart';
+import PolicyIcon from '@mui/icons-material/Policy';
+import HomeIcon from '@mui/icons-material/Home';
+import LiveHelpIcon from '@mui/icons-material/LiveHelp';
+// import LanguageIcon from '@mui/icons-material/Language';
+// import LiraIcon from '@mui/icons-material/CurrencyLira';
+// import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+// import AddShoppingIcon from '@mui/icons-material/AddShoppingCart';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const iOS =
@@ -32,7 +36,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
     >
       <Box role="presentation" onClick={onClose} onKeyDown={onClose}>
         <List>
-          <ListItem disablePadding>
+          {/* <ListItem disablePadding>
             <ListItemButton href="https://www.rialir.com/" target="_blank">
               <ListItemIcon>
                 <LanguageIcon />
@@ -72,13 +76,36 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               </ListItemIcon>
               <ListItemText primary={t('shopping')} />
             </ListItemButton>
+          </ListItem> */}
+          <ListItem disablePadding>
+            <ListItemButton LinkComponent={Link} href="/">
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton
-              target="_blank"
-              href="https://www.rialir.com/contact/"
-            >
+            <ListItemButton LinkComponent={Link} href="/faq">
+              <ListItemIcon>
+                <LiveHelpIcon />
+              </ListItemIcon>
+              <ListItemText primary={t('faq')} />
+            </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+            <ListItemButton LinkComponent={Link} href="/privacy-policy">
+              <ListItemIcon>
+                <PolicyIcon />
+              </ListItemIcon>
+              <ListItemText primary={t('privacy-policy')} />
+            </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+            <ListItemButton LinkComponent={Link} href="/contact">
               <ListItemIcon>
                 <AlternateEmailIcon />
               </ListItemIcon>

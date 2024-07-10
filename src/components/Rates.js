@@ -92,21 +92,6 @@ export default function Rates() {
         }}
       >
         <ListItem>
-          <ListItemText
-            primary="ADS HERE"
-            primaryTypographyProps={{ fontSize: 32, textAlign: 'center' }}
-          />
-        </ListItem>
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-format="fluid"
-          data-ad-layout-key="-fb+5w+4e-db+86"
-          data-ad-client="ca-pub-1349787626868737"
-          data-ad-slot="2261537843"
-        />
-        <Divider component="li" />
-        <ListItem>
           <ListItemAvatar>
             <Avatar>
               <CurrencyLiraIcon />
@@ -156,7 +141,7 @@ export default function Rates() {
           <ListItemText primary="USDT-IRT" secondary={t('usdt_irt')} />
           {data?.usdt_irt && (
             <Stack alignItems="flex-end">
-              <Typography variant="h6" fontWeight={700} component="div">
+              <Typography variant="h5" fontWeight={700} component="div">
                 {ccyFormat(data.usdt_irt?.buy)}
               </Typography>
               <Typography variant="h5" fontWeight={700} component="div">
@@ -175,7 +160,7 @@ export default function Rates() {
           <ListItemText primary="USDT-TRY" secondary={t('usdt_try')} />
           {data?.usdt_try && (
             <Stack alignItems="flex-end">
-              <Typography variant="h6" fontWeight={700} component="div">
+              <Typography variant="h5" fontWeight={700} component="div">
                 {ccyFormat(data.usdt_try?.buy)}
               </Typography>
               <Typography variant="h5" fontWeight={700} component="div">
@@ -214,6 +199,14 @@ export default function Rates() {
         </ListItem>
         <Divider variant="inset" component="li" />
       </List>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-format="fluid"
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-client="ca-pub-1349787626868737"
+        data-ad-slot="2261537843"
+      />
       <Typography mt={2} align="center" color="textSecondary">
         {t('lastUpdate')}&nbsp;
         {isEn

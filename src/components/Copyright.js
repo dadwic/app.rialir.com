@@ -40,7 +40,7 @@ export default function Copyright() {
         mt={1}
       >
         {`© ${new Date().getFullYear()} `}
-        <Link color="inherit" target="_blank" href="https://www.rialir.com/">
+        <Link color="inherit" target="_blank" href="https://rialir.com/">
           RIALIR
         </Link>
       </Typography>

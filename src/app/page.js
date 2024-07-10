@@ -10,7 +10,7 @@ import Logo from '@/components/Logo';
 export default function Home() {
   const locale = useLocale();
   const dir = locale === 'en' ? 'ltr' : 'rtl';
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
