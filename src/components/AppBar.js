@@ -73,10 +73,7 @@ export default function AppBar({ dir }) {
                 Persian
               </MenuItem>
             </Menu>
-            <IconButton
-              sx={{ display: { xs: 'block', sm: 'none' } }}
-              onClick={toggleDrawer(true)}
-            >
+            <IconButton onClick={toggleDrawer(true)}>
               <Avatar sx={{ width: 32, height: 32 }}>
                 <MenuIcon />
               </Avatar>
