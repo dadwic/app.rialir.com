@@ -12,10 +12,10 @@ import ListItemText from '@mui/material/ListItemText';
 import PolicyIcon from '@mui/icons-material/Policy';
 import HomeIcon from '@mui/icons-material/Home';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-// import LanguageIcon from '@mui/icons-material/Language';
-// import LiraIcon from '@mui/icons-material/CurrencyLira';
-// import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-// import AddShoppingIcon from '@mui/icons-material/AddShoppingCart';
+import LanguageIcon from '@mui/icons-material/Language';
+import LiraIcon from '@mui/icons-material/CurrencyLira';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddShoppingIcon from '@mui/icons-material/AddShoppingCart';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
 const iOS =
@@ -36,7 +36,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
     >
       <Box role="presentation" onClick={onClose} onKeyDown={onClose}>
         <List>
-          {/* <ListItem disablePadding>
+          <ListItem disablePadding>
             <ListItemButton href="https://www.rialir.com/" target="_blank">
               <ListItemIcon>
                 <LanguageIcon />
@@ -76,18 +76,10 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               </ListItemIcon>
               <ListItemText primary={t('shopping')} />
             </ListItemButton>
-          </ListItem> */}
-          <ListItem disablePadding>
-            <ListItemButton LinkComponent={Link} href="/">
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItemButton>
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton LinkComponent={Link} href="/faq">
+            <ListItemButton target="_blank" href="https://www.rialir.com/faq/">
               <ListItemIcon>
                 <LiveHelpIcon />
               </ListItemIcon>
@@ -96,7 +88,10 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton LinkComponent={Link} href="/privacy-policy">
+            <ListItemButton
+              target="_blank"
+              href="https://www.rialir.com/privacy-policy/"
+            >
               <ListItemIcon>
                 <PolicyIcon />
               </ListItemIcon>
@@ -105,7 +100,10 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
           </ListItem>
           <Divider />
           <ListItem disablePadding>
-            <ListItemButton LinkComponent={Link} href="/contact">
+            <ListItemButton
+              target="_blank"
+              href="https://www.rialir.com/contact/"
+            >
               <ListItemIcon>
                 <AlternateEmailIcon />
               </ListItemIcon>
