@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import PulseCircle from './PulseCircle';
 
 export default function Copyright() {
+  const t = useTranslations('Rates');
   return (
     <Stack alignItems="center" mt={2}>
       <div dir="ltr">
@@ -41,7 +43,7 @@ export default function Copyright() {
           align="center"
           fontWeight={700}
         >
-          Turkish lira Exchange Rates
+          {t('live')}
         </Typography>
       </Stack>
       <Typography
