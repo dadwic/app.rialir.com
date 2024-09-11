@@ -104,7 +104,7 @@ export default function Rates() {
                 direction="row"
                 alignItems={isEn ? 'center' : 'flex-start'}
               >
-                <Chip label={t('buy')} size="small" sx={{ width: 48 }} />
+                <Chip label={t('buy')} size="small" sx={{ width: 56 }} />
                 <Typography
                   variant="h5"
                   fontWeight={700}
@@ -118,7 +118,7 @@ export default function Rates() {
                 direction="row"
                 alignItems={isEn ? 'center' : 'flex-start'}
               >
-                <Chip label={t('sell')} size="small" sx={{ width: 48 }} />
+                <Chip label={t('sell')} size="small" sx={{ width: 56 }} />
                 <Typography
                   variant="h5"
                   fontWeight={700}
