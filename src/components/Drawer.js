@@ -41,7 +41,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               <ListItemIcon>
                 <LanguageIcon />
               </ListItemIcon>
-              <ListItemText primary="وب‌سایت ریالیر" />
+              <ListItemText primary={t('rialir')} />
             </ListItemButton>
           </ListItem>
           <Divider />
@@ -50,7 +50,7 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
               <ListItemIcon>
                 <LiraIcon />
               </ListItemIcon>
-              <ListItemText primary="قیمت لحظه ای لیر" />
+              <ListItemText primary={t('lir')} />
             </ListItemButton>
           </ListItem>
           <Divider />
