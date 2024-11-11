@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import Box from '@mui/material/Box';
 import List from '@mui/material/List';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -20,7 +21,7 @@ const iOS =
   typeof navigator !== 'undefined' &&
   /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-export default function Drawer({ dir, open, onClose, onOpen }) {
+export default function Drawer({ dir, open, onClose, onOpen, onHide }) {
   const t = useTranslations('Menu');
   return (
     <SwipeableDrawer
@@ -32,7 +33,13 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
       onClose={onClose}
       onOpen={onOpen}
     >
-      <Box role="presentation" onClick={onClose} onKeyDown={onClose}>
+      <Stack
+        height="100%"
+        role="presentation"
+        justifyContent="space-between"
+        onClick={onClose}
+        onKeyDown={onClose}
+      >
         <List>
           <ListItem disablePadding>
             <ListItemButton href="https://www.rialir.com/" target="_blank">
@@ -109,7 +116,10 @@ export default function Drawer({ dir, open, onClose, onOpen }) {
             </ListItemButton>
           </ListItem>
         </List>
-      </Box>
+        <Button fullWidth onClick={onHide}>
+          Hide
+        </Button>
+      </Stack>
     </SwipeableDrawer>
   );
 }

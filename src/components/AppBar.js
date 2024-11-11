@@ -17,6 +17,7 @@ import Drawer from './Drawer';
 
 export default function AppBar({ dir }) {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = React.useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const locale = useLocale();
   const menuOpen = Boolean(anchorEl);
@@ -46,38 +47,46 @@ export default function AppBar({ dir }) {
             <Box href="/" display="flex" component={Link} sx={{ flexGrow: 1 }}>
               <img src="/logo.svg" height={48} />
             </Box>
-            <IconButton
-              id="lang-button"
-              aria-controls={menuOpen ? 'lang-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={menuOpen ? 'true' : undefined}
-              onClick={handleClick}
-            >
-              <Avatar sx={{ width: 32, height: 32 }}>
-                <TranslateIcon />
-              </Avatar>
-            </IconButton>
-            <Menu
-              id="lang-menu"
-              anchorEl={anchorEl}
-              open={menuOpen}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'lang-button',
-              }}
-            >
-              <MenuItem disabled={locale === 'en'} onClick={handleChange('en')}>
-                English
-              </MenuItem>
-              <MenuItem disabled={locale === 'fa'} onClick={handleChange('fa')}>
-                Persian
-              </MenuItem>
-            </Menu>
-            <IconButton onClick={toggleDrawer(true)}>
-              <Avatar sx={{ width: 32, height: 32 }}>
-                <MenuIcon />
-              </Avatar>
-            </IconButton>
+            <Box display={hidden ? 'none' : 'block'}>
+              <IconButton
+                id="lang-button"
+                aria-controls={menuOpen ? 'lang-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={menuOpen ? 'true' : undefined}
+                onClick={handleClick}
+              >
+                <Avatar sx={{ width: 32, height: 32 }}>
+                  <TranslateIcon />
+                </Avatar>
+              </IconButton>
+              <Menu
+                id="lang-menu"
+                anchorEl={anchorEl}
+                open={menuOpen}
+                onClose={handleClose}
+                MenuListProps={{
+                  'aria-labelledby': 'lang-button',
+                }}
+              >
+                <MenuItem
+                  disabled={locale === 'en'}
+                  onClick={handleChange('en')}
+                >
+                  English
+                </MenuItem>
+                <MenuItem
+                  disabled={locale === 'fa'}
+                  onClick={handleChange('fa')}
+                >
+                  Persian
+                </MenuItem>
+              </Menu>
+              <IconButton onClick={toggleDrawer(true)}>
+                <Avatar sx={{ width: 32, height: 32 }}>
+                  <MenuIcon />
+                </Avatar>
+              </IconButton>
+            </Box>
           </Toolbar>
         </MuiAppBar>
         <Drawer
@@ -85,6 +94,7 @@ export default function AppBar({ dir }) {
           open={open}
           onOpen={toggleDrawer(true)}
           onClose={toggleDrawer(false)}
+          onHide={() => setHidden(true)}
         />
       </Box>
     </div>
