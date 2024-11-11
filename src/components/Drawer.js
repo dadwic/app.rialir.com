@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -10,7 +9,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import PolicyIcon from '@mui/icons-material/Policy';
-import HomeIcon from '@mui/icons-material/Home';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import LanguageIcon from '@mui/icons-material/Language';
 import LiraIcon from '@mui/icons-material/CurrencyLira';
