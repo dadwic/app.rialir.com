@@ -98,85 +98,20 @@ export default function Rates() {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="TRY-IRT" secondary={t('try_irt')} />
-          {data?.try_irt && (
-            <Stack>
-              <Stack
-                direction="row"
-                alignItems={isEn ? 'center' : 'flex-start'}
-              >
-                <Chip label={t('buy')} size="small" sx={{ width: 56 }} />
-                <Typography
-                  variant="h5"
-                  fontWeight={700}
-                  component="div"
-                  ml={2}
-                >
-                  {ccyFormat(data.try_irt?.buy)}
-                </Typography>
-              </Stack>
-              <Stack
-                direction="row"
-                alignItems={isEn ? 'center' : 'flex-start'}
-              >
-                <Chip label={t('sell')} size="small" sx={{ width: 56 }} />
-                <Typography
-                  variant="h5"
-                  fontWeight={700}
-                  component="div"
-                  ml={2}
-                >
-                  {ccyFormat(data.try_irt?.sell)}
-                </Typography>
-              </Stack>
-            </Stack>
-          )}
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <AttachMoneyIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="USDT-IRT" secondary={t('usdt_irt')} />
-          {data?.usdt_irt && (
-            <Stack alignItems="flex-end">
-              <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.usdt_irt?.buy)}
-              </Typography>
-              <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.usdt_irt?.sell)}
+          <Stack>
+            <Stack direction="row" alignItems={isEn ? 'center' : 'flex-start'}>
+              <Chip label={t('buy')} size="small" sx={{ width: 56 }} />
+              <Typography variant="h5" fontWeight={700} component="div" ml={2}>
+                {ccyFormat(data?.try_irt?.buy)}
               </Typography>
             </Stack>
-          )}
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <AttachMoneyIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="USDT-TRY" secondary={t('usdt_try')} />
-          {data?.usdt_try && (
-            <Typography variant="h5" fontWeight={700} component="div">
-              {ccyFormat(data.usdt_try?.average)}
-            </Typography>
-          )}
-        </ListItem>
-        <Divider variant="inset" component="li" />
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <CurrencyBitcoinIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="BTC-USDT" secondary={t('btc_usdt')} />
-          {data?.btc_usdt && (
-            <Typography variant="h5" fontWeight={700} component="div">
-              {ccyFormat(data.btc_usdt)}
-            </Typography>
-          )}
+            <Stack direction="row" alignItems={isEn ? 'center' : 'flex-start'}>
+              <Chip label={t('sell')} size="small" sx={{ width: 56 }} />
+              <Typography variant="h5" fontWeight={700} component="div" ml={2}>
+                {ccyFormat(data?.try_irt?.sell)}
+              </Typography>
+            </Stack>
+          </Stack>
         </ListItem>
         <Divider variant="inset" component="li" />
         <ListItem>
@@ -186,11 +121,45 @@ export default function Rates() {
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={t('shopping')} secondary={t('try_irt')} />
-          {data?.try_irt && (
-            <Typography variant="h5" fontWeight={700} component="div">
-              {ccyFormat(data.try_irt?.shop)}
-            </Typography>
-          )}
+          <Typography variant="h5" fontWeight={700} component="div">
+            {ccyFormat(data?.try_irt?.shop)}
+          </Typography>
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <AttachMoneyIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="USDT-IRT" secondary={t('usdt_irt')} />
+          <Typography variant="h5" fontWeight={700} component="div">
+            {ccyFormat(data?.usdt_irt?.buy)}
+          </Typography>
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <AttachMoneyIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="USDT-TRY" secondary={t('usdt_try')} />
+          <Typography variant="h5" fontWeight={700} component="div">
+            {ccyFormat(data?.usdt_try?.average)}
+          </Typography>
+        </ListItem>
+        <Divider variant="inset" component="li" />
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <CurrencyBitcoinIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="BTC-USDT" secondary={t('btc_usdt')} />
+          <Typography variant="h5" fontWeight={700} component="div">
+            {ccyFormat(data?.btc_usdt)}
+          </Typography>
         </ListItem>
         <Divider variant="inset" component="li" />
       </List>
