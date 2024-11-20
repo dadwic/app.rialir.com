@@ -134,7 +134,7 @@ export default function Rates() {
           </ListItemAvatar>
           <ListItemText primary="USDT-IRT" secondary={t('usdt_irt')} />
           <Typography variant="h5" fontWeight={700} component="div">
-            {ccyFormat(data?.usdt_irt?.latest)}
+            {ccyFormat(data?.usdt_irt?.sell)}
           </Typography>
         </ListItem>
         <Divider variant="inset" component="li" />
