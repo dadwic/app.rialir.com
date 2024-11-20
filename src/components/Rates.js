@@ -159,14 +159,9 @@ export default function Rates() {
           </ListItemAvatar>
           <ListItemText primary="USDT-TRY" secondary={t('usdt_try')} />
           {data?.usdt_try && (
-            <Stack alignItems="flex-end">
-              <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.usdt_try?.buy)}
-              </Typography>
-              <Typography variant="h5" fontWeight={700} component="div">
-                {ccyFormat(data.usdt_try?.sell)}
-              </Typography>
-            </Stack>
+            <Typography variant="h5" fontWeight={700} component="div">
+              {ccyFormat(data.usdt_try?.average)}
+            </Typography>
           )}
         </ListItem>
         <Divider variant="inset" component="li" />
