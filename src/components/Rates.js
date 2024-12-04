@@ -94,7 +94,7 @@ export default function Rates() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <CurrencyLiraIcon />
+              <CurrencyLiraIcon color="action" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="TRY-IRT" secondary={t('try_irt')} />
@@ -117,7 +117,7 @@ export default function Rates() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <CurrencyLiraIcon />
+              <CurrencyLiraIcon color="action" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary={t('shopping')} secondary={t('try_irt')} />
@@ -129,7 +129,7 @@ export default function Rates() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <AttachMoneyIcon />
+              <AttachMoneyIcon color="action" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="USDT-IRT" secondary={t('usdt_irt')} />
@@ -141,7 +141,7 @@ export default function Rates() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <AttachMoneyIcon />
+              <AttachMoneyIcon color="action" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="USDT-TRY" secondary={t('usdt_try')} />
@@ -153,7 +153,7 @@ export default function Rates() {
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <CurrencyBitcoinIcon />
+              <CurrencyBitcoinIcon color="action" />
             </Avatar>
           </ListItemAvatar>
           <ListItemText primary="BTC-USDT" secondary={t('btc_usdt')} />

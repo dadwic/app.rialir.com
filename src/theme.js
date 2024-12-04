@@ -19,7 +19,12 @@ const vazirmatn = Vazirmatn({
 export const ltrTheme = createTheme({
   direction: 'ltr',
   palette: {
-    mode: 'dark',
+    primary: {
+      main: '#CE0E2D',
+    },
+  },
+  colorSchemes: {
+    dark: true,
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
@@ -50,7 +55,12 @@ export const ltrTheme = createTheme({
 export const rtlTheme = createTheme({
   direction: 'rtl',
   palette: {
-    mode: 'dark',
+    primary: {
+      main: '#CE0E2D',
+    },
+  },
+  colorSchemes: {
+    dark: true,
   },
   typography: {
     fontFamily: `${vazirmatn.style.fontFamily}, ${roboto.style.fontFamily}`,

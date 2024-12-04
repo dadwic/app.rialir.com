@@ -47,7 +47,10 @@ export default async function RootLayout(props) {
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <NextIntlClientProvider messages={messages}>
             <Rtl locale={locale}>
-              <ThemeProvider theme={locale === 'en' ? ltrTheme : rtlTheme}>
+              <ThemeProvider
+                theme={locale === 'en' ? ltrTheme : rtlTheme}
+                defaultMode="system"
+              >
                 <CssBaseline />
                 {props.children}
                 <SpeedInsights />

@@ -56,7 +56,7 @@ export default function AppBar({ dir }) {
                 onClick={handleClick}
               >
                 <Avatar sx={{ width: 32, height: 32 }}>
-                  <TranslateIcon />
+                  <TranslateIcon color="action" />
                 </Avatar>
               </IconButton>
               <Menu
@@ -83,7 +83,7 @@ export default function AppBar({ dir }) {
               </Menu>
               <IconButton onClick={toggleDrawer(true)}>
                 <Avatar sx={{ width: 32, height: 32 }}>
-                  <MenuIcon />
+                  <MenuIcon color="action" />
                 </Avatar>
               </IconButton>
             </Box>
