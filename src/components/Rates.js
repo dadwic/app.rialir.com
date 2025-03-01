@@ -175,7 +175,9 @@ export default function Rates() {
         {t('lastUpdate')}&nbsp;
         {isEn
           ? dayjs(data?.updated_at).format('MMM D, YYYY [at] H:mm')
-          : moment(data?.updated_at).format('jD jMMMM jYYYY [ساعت] H:mm')}
+          : moment(data?.updated_at)
+              .zone('+0330')
+              .format('jD jMMMM jYYYY [ساعت] H:mm')}
       </Typography>
     </React.Fragment>
   );
